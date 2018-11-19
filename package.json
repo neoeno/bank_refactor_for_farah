@@ -4,7 +4,8 @@
   "description": "Bank application",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "open SpecRunner.html",
+    "start": "open index.html"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,6 @@
   "homepage": "https://github.com/fabjab86/Bank_Tech_Test#readme",
   "dependencies": {},
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jasmine": "^3.3.0"
   }
 }
