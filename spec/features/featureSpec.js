@@ -25,5 +25,25 @@ describe("Bank Application" , () => {
     })
   })
 
+  describe("Transactions with print statement", () => {
+    it("prints out all the transactions", () => {
+      bankapp.deposit(100);
+      bankapp.deposit(100);
+      bankapp.withdraw(50);
+      bankapp.withdraw(20);
+      expect(bankapp.printStatement().length).toEqual(5)
+    })
+  })
+
+  describe("Some incorrect transactions with print statement", () => {
+    it("prints the correct number of transactions", () => {
+      bankapp.deposit(-100);
+      bankapp.deposit(100);
+      bankapp.deposit(10.56);
+      bankapp.withdraw(500);
+      bankapp.withdraw(20);
+      expect(bankapp.printStatement().length).toEqual(3)
+    })
+  })
 
 })
