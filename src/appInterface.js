@@ -1,17 +1,20 @@
 function Bankapp () {
-  let myBalance = (amount, balance = 0) => {
-    if (amount) {
-      balance = balance + amount;
-      return balance;
+
+  let balance = 0;
+
+  Bankapp.prototype.showBalance = () => {
+    return balance;
+  }
+
+  Bankapp.prototype.deposit = (amount) => {
+    if (amount < 1) {
+      console.log("Amount must be greater then 1")
     } else {
-      return balance;
+      balance = balance + amount;
     }
+
   }
 
-  Bankapp.prototype.showBalance = function (){
-    return myBalance();
+  Bankapp.prototype.withdraw = (amount) => {
   }
-
-
-  
 }
