@@ -11,5 +11,14 @@ describe("Statement functions", () => {
     })
   })
 
+  describe("#newTransaction", () => {
+    it("adds all transactions to final statement", () => {
+      statement.newTransaction(['20/11/2018  ||  33.00  ||          ||  33.00']);
+      expect((statement.printSatement()).length).toEqual(2)
+    })
+  })
+
+
+
 
 })
