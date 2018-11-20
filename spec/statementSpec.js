@@ -18,7 +18,4 @@ describe("Statement functions", () => {
     })
   })
 
-
-
-
 })

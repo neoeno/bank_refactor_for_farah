@@ -1,36 +1,49 @@
 function Formatter () {
   let amnt = 0;
   let bal = 0;
+  let statement = new Statement();
 
-}
+  Formatter.prototype.formatDepositTransactions = (amount, balance) => {
+    amnt = amount;
+    bal = balance;
+    formatDepositTransactions(amnt , bal)
+  }
 
-function formatNewDate() {
-   let date = new Date()
-   let day = date.getDate()
-   let month = date.getMonth() + 1
-   let year = date.getFullYear()
+  Formatter.prototype.formatWithdrawTransactions = (amount, balance) => {
+    amnt = amount;
+    bal = balance;
+    formatWithdrawTransactions(amnt , bal)
+  }
 
-   if (day < 10) (day = '0' + day)
-   if (month < 10) (month = '0' + month)
+  function formatNewDate() {
+     let date = new Date()
+     let day = date.getDate()
+     let month = date.getMonth() + 1
+     let year = date.getFullYear()
 
-   let formattedDate = day + '/' + month + '/' + year
+     if (day < 10) (day = '0' + day)
+     if (month < 10) (month = '0' + month)
 
-   return formattedDate
-}
+     let formattedDate = day + '/' + month + '/' + year
 
-function amountToDecimal(num) {
-  let decimaled_amount = parseFloat(Math.round(num * 100) / 100).toFixed(2)
-  return decimaled_amount;
-}
+     return formattedDate
+  }
 
-function formatCreditTransactions(amnt , bal) {
+  function amountToDecimal(num) {
+    let decimaled_amount = parseFloat(Math.round(num * 100) / 100).toFixed(2)
+    return decimaled_amount;
+  }
+
+  function formatDepositTransactions(amnt , bal) {
+    arr = []
+    arr.push(formatNewDate(), amountToDecimal(amnt), '      ' , amountToDecimal(bal))
+    statement.newTransaction(arr.join('  ||  '));
+  }
+
+  function formatWithdrawTransactions (amnt , bal){
   arr = []
-  arr.push(formatNewDate(), amountToDecimal(amnt), '      ' , amountToDecimal(bal))
-  return (arr.join('  ||  '));
-}
+  arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal))
+  statement.newTransaction(arr.join('  ||  '));
+  }
 
-function formatWithdrawTransactions (amnt , bal){
-arr = []
-arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal))
-return (arr.join('  ||  '));
 }

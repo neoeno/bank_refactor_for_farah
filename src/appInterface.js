@@ -1,8 +1,10 @@
 function Bankapp () {
 
   let balance = 0;
-  const notANumber = "Amount must an integer greater then 1";
+  const notANumber = "Amount must an integer greater than 1";
   const insufF = "Insuficcient funds";
+  let formatter = new Formatter();
+  let statement = new Statement();
 
   Bankapp.prototype.showBalance = () => {
     return balance;
@@ -13,6 +15,7 @@ function Bankapp () {
       return notANumber;
     } else {
       balance = balance + amount;
+      formatter.formatDepositTransactions(amount, balance)
     }
   }
 
@@ -21,6 +24,13 @@ function Bankapp () {
       return insufF
     } else {
       balance = balance - amount;
+      formatter.formatWithdrawTransactions(amount, balance)
     }
   }
+
+  Bankapp.prototype.printStatement = () => {
+    statement.printSatement();
+    return statement.printSatement();
+  }
+
 }

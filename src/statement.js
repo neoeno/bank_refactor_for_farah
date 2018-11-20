@@ -1,16 +1,16 @@
 function Statement () {
-  let statementArr = [];
-  let statementHeader = ['   Date     ||  Credit   ||  Debit   ||  Balance  '];
-  let mockTransaction = ['20/11/2018  ||  33.00  ||          ||  33.00']
+  let statementArr = ['   Date     ||  Credit   ||  Debit   ||  Balance  '];
+
 
   Statement.prototype.printSatement = () => {
-    statementArr.splice(0, 0, statementHeader)
-    return statementArr
+    for (let i = 0; i < statementArr.length; i++) {
+      console.log(statementArr[i]);
+    }
+    return statementArr;
   }
 
   Statement.prototype.newTransaction = (transaction) => {
-    transaction = mockTransaction;
-    statementArr.splice(1,0, transaction)
+    statementArr.splice(1,0, transaction);
   }
 
 }

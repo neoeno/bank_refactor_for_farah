@@ -1,14 +1,7 @@
-describe("Interface functinos", () => {
+describe("Interface functions", () => {
 
   beforeEach(() => {
     bankapp = new Bankapp();
-  })
-
-
-  describe("#balance", () => {
-    it("starts with zero balance", () => {
-      expect(bankapp.showBalance()).toEqual(0)
-    })
   })
 
   describe("#deposit", () => {
