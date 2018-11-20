@@ -23,6 +23,12 @@ describe("Interface functinos", () => {
       expect(bankapp.showBalance()).toEqual(100)
     })
 
+    it("does not change the balance if amount is not an integer", () => {
+      bankapp.deposit(100);
+      bankapp.deposit(1.4);
+      expect(bankapp.showBalance()).toEqual(100)
+    })
+
   })
 
   describe("#withdraw", () => {
@@ -35,6 +41,12 @@ describe("Interface functinos", () => {
     it("does not withdraw the amount from balance if amount is greater than balance", () => {
       bankapp.deposit(100);
       bankapp.withdraw(500);
+      expect(bankapp.showBalance()).toEqual(100)
+    })
+
+    it("does not withdraw the amount from balance if amount is not in integer", () => {
+      bankapp.deposit(100);
+      bankapp.withdraw(10.4);
       expect(bankapp.showBalance()).toEqual(100)
     })
   })

@@ -4,7 +4,7 @@ describe("Bank Application" , () => {
     bankapp = new Bankapp();
   })
 
-  describe("Happy Path deposit/withdraw", () => {
+  describe("Correct inputs deposit/withdraw", () => {
     it("has the correct balance amount", () => {
       bankapp.deposit(100);
       bankapp.deposit(100);
@@ -14,15 +14,16 @@ describe("Bank Application" , () => {
     })
   })
 
-  describe("Unhappy Path deposit/withdraw", () => {
+  describe("Incorrect imputs deposit/withdraw", () => {
     it("has the correct balance amount", () => {
       bankapp.deposit(-100);
       bankapp.deposit(100);
+      bankapp.deposit(10.56);
       bankapp.withdraw(500);
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(80)
     })
   })
 
-  
+
 })
