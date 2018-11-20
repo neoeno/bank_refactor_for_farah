@@ -26,10 +26,16 @@ describe("Interface functinos", () => {
   })
 
   describe("#withdraw", () => {
-    xit("withdraws the amount from balance", () => {
+    it("withdraws the amount from balance", () => {
       bankapp.deposit(100);
       bankapp.withdraw(50);
       expect(bankapp.showBalance()).toEqual(50)
+    })
+
+    it("does not withdraw the amount from balance if amount is greater than balance", () => {
+      bankapp.deposit(100);
+      bankapp.withdraw(500);
+      expect(bankapp.showBalance()).toEqual(100)
     })
   })
 

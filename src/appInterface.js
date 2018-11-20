@@ -7,14 +7,18 @@ function Bankapp () {
   }
 
   Bankapp.prototype.deposit = (amount) => {
-    if (amount < 1) {
-      console.log("Amount must be greater then 1")
+    if ( amount < 1 || amount % 1 !== 0  ) {
+      return 'Amount must an integer greater then 1'
     } else {
       balance = balance + amount;
     }
-
   }
 
   Bankapp.prototype.withdraw = (amount) => {
+    if (amount > balance) {
+      return 'Insuficcient funds'
+    } else {
+      balance = balance - amount;
+    }
   }
 }
