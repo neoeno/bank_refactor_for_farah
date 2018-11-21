@@ -9,13 +9,13 @@ describe("Bank Application" , () => {
     it("has the correct balance amount", () => {
       bankapp.deposit(100);
       bankapp.deposit(100);
-      bankapp.withdraw(50);
+      bankapp.withdraw("50");
       bankapp.withdraw(20);
-      expect(bankapp.showBalance()).toEqual(130)
+      expect(bankapp.showBalance()).toEqual(130);
     })
   })
 
-  describe("Incorrect imputs deposit/withdraw", () => {
+  describe("Incorrect inputs deposit/withdraw", () => {
     it("has the correct balance amount", () => {
       bankapp.deposit(-100);
       bankapp.deposit(100);
@@ -23,7 +23,7 @@ describe("Bank Application" , () => {
       bankapp.deposit(10.56);
       bankapp.withdraw(500);
       bankapp.withdraw(20);
-      expect(bankapp.showBalance()).toEqual(80)
+      expect(bankapp.showBalance()).toEqual(180);
     })
   })
 
@@ -36,8 +36,9 @@ describe("Bank Application" , () => {
       expect(bankapp.showBalance()).toEqual(130);
       bankapp.printStatement();
       console.log = jasmine.createSpy("log");
-      statement.printSatement()
-      expect(console.log).toHaveBeenCalled();    })
+      statement.printSatement();
+      expect(console.log).toHaveBeenCalled();
+    })
   })
 
   describe("Some incorrect transactions with print statement", () => {
@@ -50,7 +51,7 @@ describe("Bank Application" , () => {
       expect(bankapp.showBalance()).toEqual(80);
       bankapp.printStatement();
       console.log = jasmine.createSpy("log");
-      statement.printSatement()
+      statement.printSatement();
       expect(console.log).toHaveBeenCalled();
     })
   })

@@ -17,16 +17,16 @@ function Bankapp () {
     if (amount < 1) return greaterThanOne;
     if (isNaN(amount)) return mustBeANumber;
     if (amount % 1 !== 0) return mustBeAnInteger;
-    balance = balance + amount;
-    formatter.formatDepositTransactions(amount, balance)
+    balance = balance + parseInt(amount);
+    formatter.formatDepositTransactions(amount, balance);
   }
 
   Bankapp.prototype.withdraw = (amount) => {
     if (amount > balance) return insufficientFunds;
     if (isNaN(amount)) return mustBeANumber;
     if (amount % 1 !== 0) return mustBeAnInteger ;
-    balance = balance - amount;
-    formatter.formatWithdrawTransactions(amount, balance)
+    balance = balance - parseInt(amount);
+    formatter.formatWithdrawTransactions(amount, balance);
   }
 
   Bankapp.prototype.printStatement = () => {

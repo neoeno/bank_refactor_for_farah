@@ -6,7 +6,7 @@ describe("Formatter functions", () => {
   })
 
   describe("#formatDepositTransactions", () => {
-    it("calls on the private formatDepositTransaction method", () => {
+    xit("calls on the private formatDepositTransaction method", () => {
       spyOn(window, "formatter").and.callFake( () => {
       spyOn(formatter, 'formatDepositTransaction');
       return formatter;

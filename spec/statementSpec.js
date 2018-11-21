@@ -8,7 +8,7 @@ describe("Statement functions", () => {
   describe("#printSatement", () => {
     it("returns the formated statement with the heading", () => {
       console.log = jasmine.createSpy("log");
-      statement.printSatement()
+      statement.printSatement();
       expect(console.log).toHaveBeenCalled();
     })
   })
