@@ -2,6 +2,7 @@ describe("Bank Application" , () => {
 
   beforeEach(() => {
     bankapp = new Bankapp();
+    statement = new Statement();
   })
 
   describe("Correct inputs deposit/withdraw", () => {
@@ -31,7 +32,10 @@ describe("Bank Application" , () => {
       bankapp.deposit(100);
       bankapp.withdraw(50);
       bankapp.withdraw(20);
-      expect(bankapp.printStatement().length).toEqual(5)
+      expect(bankapp.showBalance()).toEqual(130);
+      spyOn(Statement.prototype, 'printSatement');
+      bankapp.printStatement();
+      expect(Statement.prototype.printSatement).toHaveBeenCalled();
     })
   })
 
@@ -42,7 +46,10 @@ describe("Bank Application" , () => {
       bankapp.deposit(10.56);
       bankapp.withdraw(500);
       bankapp.withdraw(20);
-      expect(bankapp.printStatement().length).toEqual(3)
+      expect(bankapp.showBalance()).toEqual(80);
+      spyOn(Statement.prototype, 'printSatement');
+      bankapp.printStatement();
+      expect(Statement.prototype.printSatement).toHaveBeenCalled();
     })
   })
 
