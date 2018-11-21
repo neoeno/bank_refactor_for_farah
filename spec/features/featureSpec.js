@@ -33,10 +33,10 @@ describe("Bank Application" , () => {
       bankapp.withdraw(50);
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(130);
-      spyOn(Statement.prototype, 'printSatement');
       bankapp.printStatement();
-      expect(Statement.prototype.printSatement).toHaveBeenCalled();
-    })
+      console.log = jasmine.createSpy("log");
+      statement.printSatement()
+      expect(console.log).toHaveBeenCalled();    })
   })
 
   describe("Some incorrect transactions with print statement", () => {
@@ -47,10 +47,11 @@ describe("Bank Application" , () => {
       bankapp.withdraw(500);
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(80);
-      spyOn(Statement.prototype, 'printSatement');
       bankapp.printStatement();
-      expect(Statement.prototype.printSatement).toHaveBeenCalled();
-    })
+      console.log = jasmine.createSpy("log");
+      statement.printSatement()
+      expect(console.log).toHaveBeenCalled();
+    })    
   })
 
 })
