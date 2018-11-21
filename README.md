@@ -24,9 +24,6 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-### How to run the tests
-`npm test`
-
 
 ### How to use
 Clone the repo `git clone https://github.com/fabjab86/Bank_Tech_Test.git`  
@@ -35,6 +32,9 @@ If you do not have _npm_ installed you can install it from [here](https://www.np
 `npm install`  
 `npm start`  
 
+### How to run the tests
+`npm test`
 
+### Screenshot of the application
 
 ![](ScreenShot.png)
