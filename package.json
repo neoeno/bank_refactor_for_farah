@@ -2,7 +2,7 @@
   "name": "bank_tech_test",
   "version": "1.0.0",
   "description": "Bank application",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "open SpecRunner.html",
     "start": "open index.html"
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/fabjab86/Bank_Tech_Test.git"
   },
   "keywords": [
-    "Bank"
+    "Bank application"
   ],
   "author": "Farah Jabri",
   "license": "ISC",
@@ -20,8 +20,5 @@
     "url": "https://github.com/fabjab86/Bank_Tech_Test/issues"
   },
   "homepage": "https://github.com/fabjab86/Bank_Tech_Test#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "jasmine": "^3.3.0"
-  }
+  "dependencies": {}
 }
