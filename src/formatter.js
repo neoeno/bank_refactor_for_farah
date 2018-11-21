@@ -4,13 +4,13 @@ function Formatter () {
   Formatter.prototype.formatDepositTransactions = (amount, balance) => {
     amnt = amount;
     bal = balance;
-    formatDepositTransactions(amnt , bal)
+    formatDepositTransaction(amnt , bal)
   }
 
   Formatter.prototype.formatWithdrawTransactions = (amount, balance) => {
     amnt = amount;
     bal = balance;
-    formatWithdrawTransactions(amnt , bal)
+    formatWithdrawTransaction(amnt , bal)
   }
 
   function formatNewDate() {
@@ -32,13 +32,13 @@ function Formatter () {
     return decimaled_amount;
   }
 
-  function formatDepositTransactions(amnt , bal) {
+  function formatDepositTransaction(amnt , bal) {
     arr = []
     arr.push(formatNewDate(), amountToDecimal(amnt), '      ' , amountToDecimal(bal))
     statement.newTransaction(arr.join('  ||  '));
   }
 
-  function formatWithdrawTransactions(amnt , bal){
+  function formatWithdrawTransaction(amnt , bal){
   arr = []
   arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal))
   statement.newTransaction(arr.join('  ||  '));
