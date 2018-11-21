@@ -44,4 +44,29 @@ describe("Interface functions", () => {
     })
   })
 
+  describe("#deposit calls on formatter method", () => {
+    it("sends the data over to the formatter", () => {
+      spyOn(Formatter.prototype, 'formatDepositTransactions');
+      bankapp.deposit(100);
+      expect(Formatter.prototype.formatDepositTransactions).toHaveBeenCalled();
+    })
+  })
+
+  describe("#withdraw calls on formatter method", () => {
+    it("sends the data over to the formatter", () => {
+      spyOn(Formatter.prototype, 'formatWithdrawTransactions');
+      bankapp.deposit(100);
+      bankapp.withdraw(50);
+      expect(Formatter.prototype.formatWithdrawTransactions).toHaveBeenCalled();
+    })
+  })
+
+  describe("#printStatement", () => {
+    it("console logs the statement", () => {
+      spyOn(Statement.prototype, 'printSatement');
+      bankapp.printStatement()
+      expect(Statement.prototype.printSatement).toHaveBeenCalled();
+    })
+  })
+
 })
