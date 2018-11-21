@@ -37,4 +37,4 @@ If you do not have _npm_ installed you can install it from [here](https://www.np
 
 
 
-![](ScreenShot.svg)
+![](ScreenShot.png)
