@@ -19,6 +19,7 @@ describe("Bank Application" , () => {
     it("has the correct balance amount", () => {
       bankapp.deposit(-100);
       bankapp.deposit(100);
+      bankapp.deposit("100");
       bankapp.deposit(10.56);
       bankapp.withdraw(500);
       bankapp.withdraw(20);
@@ -51,7 +52,7 @@ describe("Bank Application" , () => {
       console.log = jasmine.createSpy("log");
       statement.printSatement()
       expect(console.log).toHaveBeenCalled();
-    })    
+    })
   })
 
 })
