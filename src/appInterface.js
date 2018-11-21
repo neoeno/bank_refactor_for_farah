@@ -2,7 +2,7 @@ function Bankapp () {
 
   let balance = 0;
   const notANumber = "Amount must an integer greater than 1";
-  const insufF = "Insuficcient funds";
+  const insufficientFunds = "Insuficcient funds";
   let formatter = new Formatter();
   let statement = new Statement();
 
@@ -11,7 +11,8 @@ function Bankapp () {
   }
 
   Bankapp.prototype.deposit = (amount) => {
-    if ( amount < 1 || amount % 1 !== 0 ) {
+    amount = parseInt(amount);
+    if (amount < 1 || isNaN(amount)) {
       return notANumber;
     } else {
       balance = balance + amount;
@@ -20,8 +21,9 @@ function Bankapp () {
   }
 
   Bankapp.prototype.withdraw = (amount) => {
-    if (amount > balance || amount % 1 !== 0) {
-      return insufF
+    amount = parseInt(amount);
+    if (amount > balance || isNaN(amount)) {
+      return insufficientFunds
     } else {
       balance = balance - amount;
       formatter.formatWithdrawTransactions(amount, balance)
@@ -30,7 +32,7 @@ function Bankapp () {
 
   Bankapp.prototype.printStatement = () => {
     statement.printSatement();
-    return statement.printSatement();
+    // return statement.printSatement();
   }
 
 }

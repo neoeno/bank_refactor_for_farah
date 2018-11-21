@@ -1,6 +1,4 @@
 function Formatter () {
-  let amnt = 0;
-  let bal = 0;
   let statement = new Statement();
 
   Formatter.prototype.formatDepositTransactions = (amount, balance) => {
@@ -40,7 +38,7 @@ function Formatter () {
     statement.newTransaction(arr.join('  ||  '));
   }
 
-  function formatWithdrawTransactions (amnt , bal){
+  function formatWithdrawTransactions(amnt , bal){
   arr = []
   arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal))
   statement.newTransaction(arr.join('  ||  '));
