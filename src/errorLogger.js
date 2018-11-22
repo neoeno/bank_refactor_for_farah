@@ -7,19 +7,19 @@ const insufficientFunds = "Insuficcient funds";
 function ErrorLogger () {
 
   ErrorLogger.prototype.greaterThanOne = () => {
-    return greaterThanOne;
+    console.log(greaterThanOne);
   }
 
   ErrorLogger.prototype.mustBeANumber = () => {
-    return mustBeANumber;
+    console.log(mustBeANumber);
   }
 
   ErrorLogger.prototype.mustBeAnInteger = () => {
-    return mustBeAnInteger;
+    console.log(mustBeAnInteger);
   }
 
   ErrorLogger.prototype.insufficientFunds = () => {
-    return insufficientFunds;
+    console.log(insufficientFunds);
   }
 
 }
