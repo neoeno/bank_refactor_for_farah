@@ -14,17 +14,14 @@ function Formatter () {
   }
 
   function formatNewDate() {
-     let date = new Date();
-     let day = date.getDate();
-     let month = (date.getMonth() + 1);
-     let year = date.getFullYear();
-
-     if (day < 10) (day = '0' + day);
-     if (month < 10) (month = '0' + month);
-
-     let formattedDate = (day + '/' + month + '/' + year);
-
-     return formattedDate;
+    let date = new Date();
+    let day = date.getDate();
+    let month = (date.getMonth() + 1);
+    let year = date.getFullYear();
+    if (day < 10) (day = '0' + day);
+    if (month < 10) (month = '0' + month);
+    let formattedDate = (day + '/' + month + '/' + year);
+    return formattedDate;
   }
 
   function amountToDecimal(num) {
@@ -39,9 +36,9 @@ function Formatter () {
   }
 
   function formatWithdrawTransaction(amnt , bal){
-  arr = [];
-  arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal));
-  statement.newTransaction(arr.join('  ||  '));
+    arr = [];
+    arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal));
+    statement.newTransaction(arr.join('  ||  '));
   }
 
 }
