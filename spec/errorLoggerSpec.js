@@ -6,7 +6,7 @@ describe("ErrorLogger functions", () => {
 
   describe(("#greaterThanOne"), () => {
     it("returns Amount must an integer greater than 1", () => {
-      expect(errorlogger.greaterThanOne()).toEqual("Amount must an integer greater than 1")
+      expect(errorlogger.greaterThanOne()).toEqual("Amount must an integer greater than 1");
     })
   })
 
