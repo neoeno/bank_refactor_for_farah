@@ -37,7 +37,7 @@ Bankapp.prototype._checkDepositAmount = function(amount) {
   } else if (amount % 1 !== 0) {
     console.log(_errorLogger.mustBeAnInteger());
   } else {
-    this._depositAmount = parseInt(amount)
+    this._depositAmount = parseInt(amount);
     this._balance = this._balance + this._depositAmount;
   }
 }
@@ -50,7 +50,7 @@ Bankapp.prototype._checkWithdrawAmount = function(amount) {
   } else if (amount % 1 !== 0) {
     console.log(_errorLogger.mustBeAnInteger());
   } else {
-    this._withdrawAmount = parseInt(amount)
+    this._withdrawAmount = parseInt(amount);
     this._balance = this._balance - this._withdrawAmount;
   }
 }
