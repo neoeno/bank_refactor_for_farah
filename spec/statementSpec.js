@@ -9,7 +9,7 @@ describe("Statement functions", () => {
     it("returns the formated statement with the heading", () => {
       expect(statement.printSatement()).toEqual([
         ['   Date     ||  Credit   ||  Debit   ||  Balance  ']
-      ])
+      ]);
     })
   })
 
@@ -21,7 +21,7 @@ describe("Statement functions", () => {
         [
           ['24/11/2018  ||  4.00  ||          ||  4.00']
         ]
-      ])
+      ]);
     })
   })
 
