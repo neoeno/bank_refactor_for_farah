@@ -46,13 +46,15 @@ describe("Formatter functions", () => {
 
   describe("#_formatDepositTransaction", () => {
     it("formats deposit transactions correctly as they should appear on the screen", () => {
-      expect(formatter._formatDepositTransaction('3.00', '4.00')).toEqual([formatter._formatNewDate(), '3.00', '      ', '4.00']);
+      let todaysDate = formatter._formatNewDate();
+      expect(formatter._formatDepositTransaction('3.00', '4.00')).toEqual(`${todaysDate}  ||  3.00  ||          ||  4.00`);
     })
   })
 
   describe("#_formatWithdrawTransaction", () => {
     it("formats deposit transactions correctly as they should appear on the screen", () => {
-      expect(formatter._formatWithdrawTransaction('3.00', '4.00')).toEqual([formatter._formatNewDate(), '      ', '3.00', '4.00']);
+      let todaysDate = formatter._formatNewDate();
+      expect(formatter._formatWithdrawTransaction('3.00', '4.00')).toEqual(`${todaysDate}  ||          ||  3.00  ||  4.00`);
     })
   })
 
