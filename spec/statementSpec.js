@@ -7,9 +7,19 @@ describe("Statement functions", () => {
 
   describe("#printSatement", () => {
     it("returns the formated statement with the heading", () => {
-      console.log = jasmine.createSpy("log");
-      statement.printSatement();
-      expect(console.log).toHaveBeenCalled();
+      expect(statement.printSatement()).toEqual([
+        ['   Date     ||  Credit   ||  Debit   ||  Balance  ']
+      ])
+    })
+  })
+
+  describe("#newTransaction", () => {
+    it("adds the transaction under the statement heading", () => {
+      statement._newTransaction(['24/11/2018  ||  4.00  ||          ||  4.00']);
+      expect(statement.printSatement()).toEqual([
+        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
+        ['24/11/2018  ||  4.00  ||          ||  4.00']
+      ])
     })
   })
 
