@@ -32,7 +32,7 @@ describe("Formatter functions", () => {
       if (month < 10) {
         month = '0' + month
       }
-      date = date.getDate() + '/' + month + '/' + date.getFullYear()
+      date = date.getDate() + '/' + month + '/' + date.getFullYear();
       expect(formatter._formatNewDate()).toEqual(date);
     })
 
