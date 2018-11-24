@@ -29,13 +29,13 @@ Formatter.prototype._amountToDecimal = function(num) {
 Formatter.prototype._formatDepositTransaction = function(amnt, bal) {
   let arr = [];
   arr.push(this._formatNewDate(), this._amountToDecimal(amnt), '      ', this._amountToDecimal(bal));
-  this.statement.newTransaction(arr.join('  ||  '));
-  return arr.join('  ||  ');
+  this.statement._newTransaction(arr.join('  ||  '));
+  return arr;
 }
 
 Formatter.prototype._formatWithdrawTransaction = function(amnt, bal) {
   let arr = [];
   arr.push(this._formatNewDate(), '      ', this._amountToDecimal(amnt), this._amountToDecimal(bal));
-  this.statement.newTransaction(arr.join('  ||  '));
-  return arr.join('  ||  ');
+  this.statement._newTransaction(arr.join('  ||  '));
+  return arr;
 }
