@@ -8,5 +8,7 @@ Statement.prototype.printSatement = function() {
 }
 
 Statement.prototype._newTransaction = function(transaction) {
-  this._statementArr.splice(1, 0, transaction);
+  let arr = [];
+  arr.push(transaction);
+  this._statementArr.splice(1, 0, arr);
 }

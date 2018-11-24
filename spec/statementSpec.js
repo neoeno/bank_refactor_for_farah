@@ -18,7 +18,9 @@ describe("Statement functions", () => {
       statement._newTransaction(['24/11/2018  ||  4.00  ||          ||  4.00']);
       expect(statement.printSatement()).toEqual([
         ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
-        ['24/11/2018  ||  4.00  ||          ||  4.00']
+        [
+          ['24/11/2018  ||  4.00  ||          ||  4.00']
+        ]
       ])
     })
   })

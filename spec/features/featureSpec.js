@@ -1,8 +1,9 @@
-describe("Bank Application" , () => {
+describe("Bank Application", () => {
 
   beforeEach(() => {
     bankapp = new Bankapp();
     statement = new Statement();
+    formatter = new Formatter();
   })
 
   describe("Correct inputs deposit/withdraw", () => {
@@ -34,10 +35,14 @@ describe("Bank Application" , () => {
       bankapp.withdraw(50);
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(130);
-      bankapp.printStatement();
-      console.log = jasmine.createSpy("log");
-      statement.printSatement();
-      expect(console.log).toHaveBeenCalled();
+      let today = formatter._formatNewDate();
+      expect(bankapp.printStatement()).toEqual([
+        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
+        [`${today}  ||          ||  20.00  ||  130.00`],
+        [`${today}  ||          ||  50.00  ||  150.00`],
+        [`${today}  ||  100.00  ||          ||  200.00`],
+        [`${today}  ||  100.00  ||          ||  100.00`]
+      ]);
     })
   })
 
@@ -49,10 +54,14 @@ describe("Bank Application" , () => {
       bankapp.withdraw(500);
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(80);
-      bankapp.printStatement();
-      console.log = jasmine.createSpy("log");
-      statement.printSatement();
-      expect(console.log).toHaveBeenCalled();
+      let today = formatter._formatNewDate();
+      expect(bankapp.printStatement()).toEqual([
+        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
+        [`${today}  ||          ||  20.00  ||  80.00`],
+        [`${today}  ||  100.00  ||          ||  100.00`],
+        [`${today}  ||  100.00  ||          ||  100.00`]
+      ]);
+
     })
   })
 

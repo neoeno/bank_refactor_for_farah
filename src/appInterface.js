@@ -1,58 +1,56 @@
-function Bankapp () {
-  let formatter = new Formatter();
-  let statement = new Statement();
-  let errorLogger = new ErrorLogger();
+function Bankapp() {
+  _formatter = new Formatter();
+  _statement = new Statement();
+  _errorLogger = new ErrorLogger();
 
-  let balance = 0;
-  let depositAmount = 0;
-  let withdrawAmount = 0;
+  this._balance = 0;
+  this._depositAmount = 0;
+  this._withdrawAmount = 0;
+}
+Bankapp.prototype.showBalance = function() {
+  return this._balance;
+}
 
-  Bankapp.prototype.showBalance = () => {
-    return balance;
+Bankapp.prototype.deposit = function(amount) {
+  this._checkDepositAmount(amount);
+  if (this._depositAmount !== 0) {
+    _formatter.formatDepositTransactions(this._depositAmount, this._balance)
   }
+}
 
-  Bankapp.prototype.deposit = (amount) => {
-    checkDepositAmount(amount);
-    if (depositAmount !== 0) {
-      formatter.formatDepositTransactions(depositAmount, balance)
-    }
+Bankapp.prototype.withdraw = function(amount) {
+  this._checkWithdrawAmount(amount);
+  if (this._withdrawAmount !== 0) {
+    _formatter.formatWithdrawTransactions(amount, this._balance)
   }
+}
 
-  Bankapp.prototype.withdraw = (amount) => {
-    checkWithdrawAmount(amount);
-    if (withdrawAmount !== 0) {
-      formatter.formatWithdrawTransactions(amount, balance)
-    }
+Bankapp.prototype.printStatement = function() {
+  return _statement.printSatement();
+}
+
+Bankapp.prototype._checkDepositAmount = function(amount) {
+  if (amount < 1) {
+    console.log(_errorLogger.greaterThanOne());
+  } else if (isNaN(amount)) {
+    console.log(_errorLogger.mustBeANumber());
+  } else if (amount % 1 !== 0) {
+    console.log(_errorLogger.mustBeAnInteger());
+  } else {
+    this._depositAmount = parseInt(amount)
+    this._balance = this._balance + this._depositAmount;
   }
+}
 
-  Bankapp.prototype.printStatement = () => {
-    statement.printSatement();
+Bankapp.prototype._checkWithdrawAmount = function(amount) {
+  if (amount > this._balance) {
+    console.log(_errorLogger.insufficientFunds());
+  } else if (isNaN(amount)) {
+    console.log(_errorLogger.mustBeANumber());
+  } else if (amount % 1 !== 0) {
+    console.log(_errorLogger.mustBeAnInteger());
+  } else {
+    this._withdrawAmount = parseInt(amount)
+    this._balance = this._balance - this._withdrawAmount;
   }
-
-  function checkDepositAmount(amount) {
-    if (amount < 1) {
-      errorLogger.greaterThanOne();
-    } else if (isNaN(amount)) {
-      errorLogger.mustBeANumber();
-    } else if (amount % 1 !== 0) {
-      errorLogger.mustBeAnInteger();
-    } else {
-      depositAmount = parseInt(amount)
-      balance = balance + depositAmount;
-    }
-  }
-
-  function checkWithdrawAmount(amount) {
-    if (amount > balance) {
-      console.log(insufficientFunds)
-    } else if (isNaN(amount)) {
-      console.log(mustBeANumber)
-    } else if (amount % 1 !== 0) {
-      console.log(mustBeAnInteger)
-    } else {
-      withdrawAmount = parseInt(amount)
-      balance = balance - withdrawAmount;
-    }
-  }
-
 }
