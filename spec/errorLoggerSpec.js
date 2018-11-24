@@ -6,33 +6,25 @@ describe("ErrorLogger functions", () => {
 
   describe(("#greaterThanOne"), () => {
     it("returns Amount must an integer greater than 1", () => {
-      console.log = jasmine.createSpy("log");
-      errorlogger.greaterThanOne();
-      expect(console.log).toHaveBeenCalled();
+      expect(errorlogger.greaterThanOne()).toEqual("Amount must an integer greater than 1")
     })
   })
 
   describe(("#mustBeANumber"), () => {
     it("returns Amount must be a number", () => {
-      console.log = jasmine.createSpy("log");
-      errorlogger.mustBeANumber();
-      expect(console.log).toHaveBeenCalled();
+      expect(errorlogger.mustBeANumber()).toEqual("Amount must be a number");
     })
   })
 
   describe(("#mustBeAnInteger"), () => {
     it("returns Amount must be an integer", () => {
-      console.log = jasmine.createSpy("log");
-      errorlogger.mustBeAnInteger();
-      expect(console.log).toHaveBeenCalled();
+      expect(errorlogger.mustBeAnInteger()).toEqual("Amount must be an integer");
     })
   })
 
   describe(("#insufficientFunds"), () => {
     it("returns Insuficcient funds", () => {
-      console.log = jasmine.createSpy("log");
-      errorlogger.insufficientFunds();
-      expect(console.log).toHaveBeenCalled();
+      expect(errorlogger.insufficientFunds()).toEqual("Insuficcient funds");
     })
   })
 

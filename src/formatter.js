@@ -1,44 +1,41 @@
-function Formatter () {
-  let statement = new Statement();
+function Formatter() {
+  this.statement = new Statement();
+}
 
-  Formatter.prototype.formatDepositTransactions = (amount, balance) => {
-    amnt = amount;
-    bal = balance;
-    formatDepositTransaction(amnt , bal);
-  }
+Formatter.prototype.formatDepositTransactions = function(amount, balance) {
+  this._formatDepositTransaction(amount, balance);
+}
 
-  Formatter.prototype.formatWithdrawTransactions = (amount, balance) => {
-    amnt = amount;
-    bal = balance;
-    formatWithdrawTransaction(amnt , bal);
-  }
+Formatter.prototype.formatWithdrawTransactions = function(amount, balance) {
+  this._formatWithdrawTransaction(amount, balance);
+}
 
-  function formatNewDate() {
-    let date = new Date();
-    let day = date.getDate();
-    let month = (date.getMonth() + 1);
-    let year = date.getFullYear();
-    if (day < 10) (day = '0' + day);
-    if (month < 10) (month = '0' + month);
-    let formattedDate = (day + '/' + month + '/' + year);
-    return formattedDate;
-  }
+Formatter.prototype._formatNewDate = function() {
+  let date = new Date();
+  let day = date.getDate();
+  let month = (date.getMonth() + 1);
+  let year = date.getFullYear();
+  if (day < 10)(day = '0' + day);
+  if (month < 10)(month = '0' + month);
+  let formattedDate = (day + '/' + month + '/' + year);
+  return formattedDate;
+}
 
-  function amountToDecimal(num) {
-    let decimaled_amount = (parseFloat(Math.round(num * 100) / 100).toFixed(2));
-    return decimaled_amount;
-  }
+Formatter.prototype._amountToDecimal = function(num) {
+  let decimaled_amount = (parseFloat(Math.round(num * 100) / 100).toFixed(2));
+  return decimaled_amount;
+}
 
-  function formatDepositTransaction(amnt , bal) {
-    arr = [];
-    arr.push(formatNewDate(), amountToDecimal(amnt), '      ' , amountToDecimal(bal));
-    statement.newTransaction(arr.join('  ||  '));
-  }
+Formatter.prototype._formatDepositTransaction = function(amnt, bal) {
+  let arr = [];
+  arr.push(this._formatNewDate(), this._amountToDecimal(amnt), '      ', this._amountToDecimal(bal));
+  return arr;
+  this.statement.newTransaction(arr.join('  ||  '));
+}
 
-  function formatWithdrawTransaction(amnt , bal){
-    arr = [];
-    arr.push(formatNewDate(), '      ' , amountToDecimal(amnt), amountToDecimal(bal));
-    statement.newTransaction(arr.join('  ||  '));
-  }
-
+Formatter.prototype._formatWithdrawTransaction = function(amnt, bal) {
+  let arr = [];
+  arr.push(this._formatNewDate(), '      ', this._amountToDecimal(amnt), this._amountToDecimal(bal));
+  return arr;
+  this.statement.newTransaction(arr.join('  ||  '));
 }

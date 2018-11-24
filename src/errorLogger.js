@@ -4,22 +4,20 @@ const mustBeAnInteger = "Amount must be an integer";
 const insufficientFunds = "Insuficcient funds";
 
 
-function ErrorLogger () {
+function ErrorLogger() {}
 
-  ErrorLogger.prototype.greaterThanOne = () => {
-    console.log(greaterThanOne);
-  }
+ErrorLogger.prototype.greaterThanOne = () => {
+  return greaterThanOne;
+}
 
-  ErrorLogger.prototype.mustBeANumber = () => {
-    console.log(mustBeANumber);
-  }
+ErrorLogger.prototype.mustBeANumber = () => {
+  return mustBeANumber;
+}
 
-  ErrorLogger.prototype.mustBeAnInteger = () => {
-    console.log(mustBeAnInteger);
-  }
+ErrorLogger.prototype.mustBeAnInteger = () => {
+  return mustBeAnInteger;
+}
 
-  ErrorLogger.prototype.insufficientFunds = () => {
-    console.log(insufficientFunds);
-  }
-
+ErrorLogger.prototype.insufficientFunds = () => {
+  return insufficientFunds;
 }
