@@ -5,23 +5,6 @@ describe("Formatter functions", () => {
     formatter = new Formatter();
   })
 
-  describe("#formatDepositTransactions", () => {
-    it("calls on the private _formatDepositTransaction method", () => {
-      spyOn(formatter, "_formatDepositTransaction");
-      formatter.formatDepositTransactions(3, 3);
-      expect(formatter._formatDepositTransaction).toHaveBeenCalled();
-    })
-  })
-
-
-  describe("#formatWithdrawTransactions", () => {
-    it("calls on the private _formatWithdrawTransaction method", () => {
-      spyOn(formatter, "_formatWithdrawTransaction");
-      formatter.formatWithdrawTransactions(6, 6);
-      expect(formatter._formatWithdrawTransaction).toHaveBeenCalled();
-    })
-  })
-
   describe("#_formatNewDate", () => {
     it("formats the date as per the requierments", () => {
       let date = new Date()

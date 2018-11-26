@@ -1,7 +1,6 @@
 function Bankapp() {
-  _formatter = new Formatter();
-  _statement = new Statement();
-  _errorLogger = new ErrorLogger();
+  this._formatter = new Formatter();
+  this._errorLogger = new ErrorLogger();
 
   this._balance = 0;
   this._depositAmount = 0;
@@ -14,28 +13,28 @@ Bankapp.prototype.showBalance = function() {
 Bankapp.prototype.deposit = function(amount) {
   this._checkDepositAmount(amount);
   if (this._depositAmount !== 0) {
-    _formatter.formatDepositTransactions(this._depositAmount, this._balance)
+    this._formatter.formatDepositTransactions(this._depositAmount, this._balance)
   }
 }
 
 Bankapp.prototype.withdraw = function(amount) {
   this._checkWithdrawAmount(amount);
   if (this._withdrawAmount !== 0) {
-    _formatter.formatWithdrawTransactions(amount, this._balance)
+    this._formatter.formatWithdrawTransactions(amount, this._balance)
   }
 }
 
 Bankapp.prototype.printStatement = function() {
-  return _statement.printSatement();
+  return this._formatter._statement.printSatement();
 }
 
 Bankapp.prototype._checkDepositAmount = function(amount) {
   if (amount < 1) {
-    console.log(_errorLogger.greaterThanOne());
+    console.log(this._errorLogger.greaterThanOne());
   } else if (isNaN(amount)) {
-    console.log(_errorLogger.mustBeANumber());
+    console.log(this._errorLogger.mustBeANumber());
   } else if (amount % 1 !== 0) {
-    console.log(_errorLogger.mustBeAnInteger());
+    console.log(this._errorLogger.mustBeAnInteger());
   } else {
     this._depositAmount = parseInt(amount);
     this._balance = this._balance + this._depositAmount;
@@ -44,11 +43,11 @@ Bankapp.prototype._checkDepositAmount = function(amount) {
 
 Bankapp.prototype._checkWithdrawAmount = function(amount) {
   if (amount > this._balance) {
-    console.log(_errorLogger.insufficientFunds());
+    console.log(this._errorLogger.insufficientFunds());
   } else if (isNaN(amount)) {
-    console.log(_errorLogger.mustBeANumber());
+    console.log(this._errorLogger.mustBeANumber());
   } else if (amount % 1 !== 0) {
-    console.log(_errorLogger.mustBeAnInteger());
+    console.log(this._errorLogger.mustBeAnInteger());
   } else {
     this._withdrawAmount = parseInt(amount);
     this._balance = this._balance - this._withdrawAmount;
