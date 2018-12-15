@@ -1,5 +1,7 @@
 function Formatter() {
-  this._statement = new Statement();
+  this._statementArr = [
+    ['   Date     ||  Credit   ||  Debit   ||  Balance  ']
+  ];
 }
 
 Formatter.prototype.formatDepositTransactions = function(amount, balance) {
@@ -8,6 +10,16 @@ Formatter.prototype.formatDepositTransactions = function(amount, balance) {
 
 Formatter.prototype.formatWithdrawTransactions = function(amount, balance) {
   this._formatWithdrawTransaction(amount, balance);
+}
+
+Formatter.prototype.returnStatement = function() {
+  return this._statementArr;
+}
+
+Formatter.prototype._newTransaction = function(transaction) {
+  let arr = [];
+  arr.push(transaction);
+  this._statementArr.splice(1, 0, arr);
 }
 
 Formatter.prototype._formatNewDate = function() {
@@ -29,13 +41,13 @@ Formatter.prototype._amountToDecimal = function(num) {
 Formatter.prototype._formatDepositTransaction = function(amnt, bal) {
   let arr = [];
   arr.push(this._formatNewDate(), this._amountToDecimal(amnt), '      ', this._amountToDecimal(bal));
-  this._statement._newTransaction(arr.join('  ||  '));
+  this._newTransaction(arr.join('  ||  '));
   return arr;
 }
 
 Formatter.prototype._formatWithdrawTransaction = function(amnt, bal) {
   let arr = [];
   arr.push(this._formatNewDate(), '      ', this._amountToDecimal(amnt), this._amountToDecimal(bal));
-  this._statement._newTransaction(arr.join('  ||  '));
+  this._newTransaction(arr.join('  ||  '));
   return arr;
 }

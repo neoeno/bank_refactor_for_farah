@@ -2,7 +2,6 @@ describe("Bank Application", () => {
 
   beforeEach(() => {
     bankapp = new Bankapp();
-    statement = new Statement();
     formatter = new Formatter();
   })
 

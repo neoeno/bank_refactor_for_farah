@@ -25,7 +25,7 @@ Bankapp.prototype.withdraw = function(amount) {
 }
 
 Bankapp.prototype.printStatement = function() {
-  return this._formatter._statement.printSatement();
+  return this._formatter.returnStatement();
 }
 
 Bankapp.prototype._checkDepositAmount = function(amount) {
