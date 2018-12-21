@@ -30,7 +30,7 @@ describe('Formatter functions', () => {
     it('returns the held transaction to statement', () => {
       formatter._newTransaction(['21/12/2018  ||  70.00  ||          ||  70.00'])
       expect(formatter._transactionsHolder.length).toEqual(1)
-      formatter._sendRecordedTransactions()
+      formatter._sendRecordedTransaction()
       expect(formatter._transactionsHolder.length).toEqual(0)
     })
   })
