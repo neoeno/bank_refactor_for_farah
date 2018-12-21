@@ -1,3 +1,5 @@
+/* global Statement, ErrorLogger */
+
 function Bankapp () {
   this._statement = new Statement()
   this._errorLogger = new ErrorLogger()
@@ -33,7 +35,7 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
     console.log(this._errorLogger.mustBeAnInteger())
   } else {
     this._depositAmount = parseInt(amount)
-    this._balance = this._balance + this._depositAmount
+    this._balance += this._depositAmount
   }
 }
 
@@ -46,7 +48,7 @@ Bankapp.prototype._checkWithdrawAmount = function (amount) {
     console.log(this._errorLogger.mustBeAnInteger())
   } else {
     this._withdrawAmount = parseInt(amount)
-    this._balance = this._balance - this._withdrawAmount
+    this._balance -= this._withdrawAmount
   }
 }
 

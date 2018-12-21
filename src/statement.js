@@ -1,3 +1,4 @@
+/* global Formatter */
 function Statement () {
   this._formatter = new Formatter()
   this._statementArr = [
@@ -6,16 +7,16 @@ function Statement () {
 }
 
 Statement.prototype._depositReceived = function (amount, balance) {
-  this._formatter.formatDepositTransactions(amount, balance)
+  this._formatter._formatDepositTransactions(amount, balance)
   this._addTransactionToStatement()
 }
 
 Statement.prototype._withdrawReceived = function (amount, balance) {
-  this._formatter.formatWithdrawTransactions(amount, balance)
+  this._formatter._formatWithdrawTransactions(amount, balance)
   this._addTransactionToStatement()
 }
 Statement.prototype._addTransactionToStatement = function () {
-  let transaction = this._formatter._HeldTransactions()
+  let transaction = this._formatter._sendRecordedTransactions()
   this._statementArr.splice(1, 0, transaction)
 }
 
