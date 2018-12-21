@@ -1,5 +1,5 @@
 function Bankapp () {
-  this._formatter = new Formatter()
+  this._statement = new Statement()
   this._errorLogger = new ErrorLogger()
 
   this._balance = 0
@@ -13,19 +13,15 @@ Bankapp.prototype.showBalance = function () {
 Bankapp.prototype.deposit = function (amount) {
   this._checkDepositAmount(amount)
   if (this._depositAmount !== 0) {
-    this._formatter.formatDepositTransactions(this._depositAmount, this._balance)
+    this._statement._depositReceived(this._depositAmount, this._balance)
   }
 }
 
 Bankapp.prototype.withdraw = function (amount) {
   this._checkWithdrawAmount(amount)
   if (this._withdrawAmount !== 0) {
-    this._formatter.formatWithdrawTransactions(amount, this._balance)
+    this._statement._withdrawReceived(this._withdrawAmount, this._balance)
   }
-}
-
-Bankapp.prototype.printStatement = function () {
-  return this._formatter.returnStatement()
 }
 
 Bankapp.prototype._checkDepositAmount = function (amount) {
@@ -37,7 +33,7 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
     console.log(this._errorLogger.mustBeAnInteger())
   } else {
     this._depositAmount = parseInt(amount)
-    this._balance = this._balance + this._depositAmount;
+    this._balance = this._balance + this._depositAmount
   }
 }
 
@@ -52,4 +48,8 @@ Bankapp.prototype._checkWithdrawAmount = function (amount) {
     this._withdrawAmount = parseInt(amount)
     this._balance = this._balance - this._withdrawAmount
   }
+}
+
+Bankapp.prototype.printStatement = function () {
+  return this._statement._returnStatement()
 }
