@@ -28,11 +28,11 @@ Bankapp.prototype.withdraw = function (amount) {
 
 Bankapp.prototype._checkDepositAmount = function (amount) {
   if (amount < 1) {
-    console.log(this._errorLogger.greaterThanOne())
+    console.log(this._errorLogger._greaterThanOne())
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger.mustBeANumber())
+    console.log(this._errorLogger._mustBeANumber())
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger.mustBeAnInteger())
+    console.log(this._errorLogger._mustBeAnInteger())
   } else {
     this._depositAmount = parseInt(amount)
     this._balance += this._depositAmount
@@ -41,11 +41,11 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
 
 Bankapp.prototype._checkWithdrawAmount = function (amount) {
   if (amount > this._balance) {
-    console.log(this._errorLogger.insufficientFunds())
+    console.log(this._errorLogger._insufficientFunds())
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger.mustBeANumber())
+    console.log(this._errorLogger._mustBeANumber())
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger.mustBeAnInteger())
+    console.log(this._errorLogger._mustBeAnInteger())
   } else {
     this._withdrawAmount = parseInt(amount)
     this._balance -= this._withdrawAmount
