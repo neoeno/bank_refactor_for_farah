@@ -16,7 +16,7 @@ Statement.prototype._withdrawReceived = function (amount, balance) {
   this._addTransactionToStatement()
 }
 Statement.prototype._addTransactionToStatement = function () {
-  let transaction = this._formatter._sendRecordedTransaction()
+  let transaction = this._formatter._sendFormattedTransaction()
   this._statementArr.splice(1, 0, transaction)
 }
 

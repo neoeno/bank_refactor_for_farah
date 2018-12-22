@@ -3,32 +3,24 @@ function Formatter () {
 }
 
 Formatter.prototype._formatDepositTransactions = function (amount, balance) {
-  this._formatDepositTransaction(amount, balance)
-}
-
-Formatter.prototype._formatDepositTransaction = function (amount, balance) {
   let arr = []
-  arr.push(this._formatNewDate(), this._amountToDecimal(amount), '      ', this._amountToDecimal(balance))
-  this._newTransaction(arr.join('  ||  '))
-  return arr
+  let depositedAmount = this._amountToDecimal(amount)
+  let currentBalance = this._amountToDecimal(balance)
+  let date = this._formatDate()
+  arr.push(date, depositedAmount, '      ', currentBalance)
+  this._transactionsHolder.push(arr.join('  ||  '))
 }
 
 Formatter.prototype._formatWithdrawTransactions = function (amount, balance) {
-  this._formatWithdrawTransaction(amount, balance)
-}
-
-Formatter.prototype._formatWithdrawTransaction = function (amount, balance) {
   let arr = []
-  arr.push(this._formatNewDate(), '      ', this._amountToDecimal(amount), this._amountToDecimal(balance))
-  this._newTransaction(arr.join('  ||  '))
-  return arr
+  let withdrawnAmount = this._amountToDecimal(amount)
+  let currentBalance = this._amountToDecimal(balance)
+  let date = this._formatDate()
+  arr.push(date, '      ', withdrawnAmount, currentBalance)
+  this._transactionsHolder.push(arr.join('  ||  '))
 }
 
-Formatter.prototype._newTransaction = function (transaction) {
-  this._transactionsHolder.push(transaction)
-}
-
-Formatter.prototype._sendRecordedTransaction = function () {
+Formatter.prototype._sendFormattedTransaction = function () {
   let latestTransaction = this._transactionsHolder.splice(0, 1)
   return latestTransaction
 }
@@ -38,7 +30,7 @@ Formatter.prototype._amountToDecimal = function (num) {
   return decimaledAmount
 }
 
-Formatter.prototype._formatNewDate = function () {
+Formatter.prototype._formatDate = function () {
   let date = new Date()
   let day = date.getDate()
   let month = (date.getMonth() + 1)

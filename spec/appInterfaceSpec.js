@@ -15,7 +15,7 @@ describe('Interface functions', () => {
   })
 
   describe('#deposit', () => {
-    it('increases the balance if amount is deposited', () => {
+    it('deposits amount to balance', () => {
       bankapp.deposit(100)
       expect(bankapp.showBalance()).toEqual(100)
     })
@@ -77,7 +77,7 @@ describe('Interface functions', () => {
 
   describe('#printStatement', () => {
     it('returns the statement', () => {
-      let today = formatter._formatNewDate()
+      let today = formatter._formatDate()
       bankapp.deposit(100)
       bankapp.withdraw(50)
       expect(bankapp.printStatement()).toEqual([

@@ -1,5 +1,4 @@
 /* global describe, beforeEach, it, expect, bankapp:true, Bankapp, formatter:true, Formatter */
-
 describe('Bank Application', () => {
   beforeEach(() => {
     bankapp = new Bankapp()
@@ -35,7 +34,7 @@ describe('Bank Application', () => {
       bankapp.withdraw(50)
       bankapp.withdraw(20)
       expect(bankapp.showBalance()).toEqual(130)
-      let today = formatter._formatNewDate()
+      let today = formatter._formatDate()
       expect(bankapp.printStatement()).toEqual([
         ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  20.00  ||  130.00`],
@@ -54,7 +53,7 @@ describe('Bank Application', () => {
       bankapp.withdraw(500)
       bankapp.withdraw(20)
       expect(bankapp.showBalance()).toEqual(80)
-      let today = formatter._formatNewDate()
+      let today = formatter._formatDate()
       expect(bankapp.printStatement()).toEqual([
         ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  20.00  ||  80.00`],
