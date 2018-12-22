@@ -33,8 +33,12 @@ If you do not have _npm_ installed you can install it from [here](https://www.np
 `npm start`  
 
 ### How to run the tests
-`npm test`
+`npm test` to run jasmine  
+If you have ESLint installed globally then you can use these commands  
+`eslint src` and `eslint spec`  
+If you do not you can run these commands  
+`./node_modules/.bin/eslint src`  
+`./node_modules/.bin/eslint spec`  
 
 ### Screenshot of the application
-
-![](ScreenShot.png)
+<img width=600 src="ScreenShot.png"/>
