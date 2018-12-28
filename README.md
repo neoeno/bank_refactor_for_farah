@@ -41,4 +41,4 @@ If you do not you can run these commands
 `./node_modules/.bin/eslint spec`  
 
 ### Screenshot of the application
-<img width=600 src="ScreenShot.png"/>
+<img width=600 src="./public/ScreenShot.png"/>
