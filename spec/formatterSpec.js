@@ -3,7 +3,7 @@ describe('Formatter functions', () => {
     formatter = new Formatter();
   });
 
-  describe('#_sendFormattedTransaction', () => {
+  describe('#sendFormattedTransaction', () => {
     it('returns the formatted deposit transaction to statement', () => {
       formatter.formatDepositTransactions(40, 80);
       expect(formatter._transactionsHolder.length).toEqual(1);
