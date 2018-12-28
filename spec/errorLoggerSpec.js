@@ -5,27 +5,27 @@ describe('ErrorLogger functions', () => {
     errorlogger = new ErrorLogger();
   });
 
-  describe(('#_lessThanOne'), () => {
+  describe(('#lessThanOne'), () => {
     it('returns Amount must an integer greater than 1', () => {
-      expect(errorlogger._lessThanOne()).toEqual('Amount must an integer greater than 1');
+      expect(errorlogger.lessThanOne()).toEqual('Amount must an integer greater than 1');
     });
   });
 
-  describe(('#_notANumber'), () => {
+  describe(('#notANumber'), () => {
     it('returns Amount must be a number', () => {
-      expect(errorlogger._notANumber()).toEqual('Amount must be a number');
+      expect(errorlogger.notANumber()).toEqual('Amount must be a number');
     });
   });
 
-  describe(('#_notAnIntegerr'), () => {
+  describe(('#notAnIntegerr'), () => {
     it('returns Amount must be an integer', () => {
-      expect(errorlogger._notAnInteger()).toEqual('Amount must be an integer');
+      expect(errorlogger.notAnInteger()).toEqual('Amount must be an integer');
     });
   });
 
-  describe(('#_insufficientFunds'), () => {
+  describe(('#insufficientFunds'), () => {
     it('returns Insuficcient funds', () => {
-      expect(errorlogger._insufficientFunds()).toEqual('Insuficcient funds');
+      expect(errorlogger.insufficientFunds()).toEqual('Insuficcient funds');
     });
   });
 });
