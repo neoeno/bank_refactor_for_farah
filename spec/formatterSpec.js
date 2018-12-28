@@ -5,18 +5,16 @@ describe('Formatter functions', () => {
 
   describe('#_sendFormattedTransaction', () => {
     it('returns the formatted deposit transaction to statement', () => {
-      formatter._formatDepositTransactions(40, 80);
+      formatter.formatDepositTransactions(40, 80);
       expect(formatter._transactionsHolder.length).toEqual(1);
-      formatter._sendFormattedTransaction();
+      formatter.sendFormattedTransaction();
       expect(formatter._transactionsHolder.length).toEqual(0);
     });
-  });
 
-  describe('#_sendFormattedTransaction', () => {
     it('returns the formatted withdraw transaction to statement', () => {
-      formatter._formatWithdrawTransactions(40, 80);
+      formatter.formatWithdrawTransactions(40, 80);
       expect(formatter._transactionsHolder.length).toEqual(1);
-      formatter._sendFormattedTransaction();
+      formatter.sendFormattedTransaction();
       expect(formatter._transactionsHolder.length).toEqual(0);
     });
   });
