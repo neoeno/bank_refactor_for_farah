@@ -11,7 +11,7 @@ Statement.prototype.depositReceived = function (amount, balance) {
 };
 
 Statement.prototype.withdrawReceived = function (amount, balance) {
-  this._formatter._formatWithdrawTransactions(amount, balance);
+  this._formatter.formatWithdrawTransactions(amount, balance);
   this._addTransactionToStatement();
 };
 Statement.prototype._addTransactionToStatement = function () {
