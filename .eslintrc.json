@@ -1,3 +1,29 @@
 {
-    "extends": "standard"
+    "extends": "standard",
+    "rules": {
+        "semi": ["warn", "always"],
+        "quotes": ["warn", "double"]
+    },
+    "globals": {
+       "data": true,
+       "describe": true,
+       "it": true,
+       "xit": true,
+       "expect": true,
+       "beforeEach": true,
+       "Till": true,
+       "till": true,
+       "formatter": true,
+       "Formatter": true,
+       "statement": true,
+       "errorLogger": true,
+       "Statement": true,
+       "ErrorLogger": true,
+       "Bankapp": true,
+       "bankapp": true
+   },
+   "rules": {
+     "camelcase": [2, {"properties": "always"}],
+     "semi": [2, "always"]
+   }
 }
