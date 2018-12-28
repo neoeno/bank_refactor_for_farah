@@ -6,7 +6,7 @@ function Statement () {
 }
 
 Statement.prototype.depositReceived = function (amount, balance) {
-  this._formatter.formatDeposit(amount, balance);
+  this._formatter.formatDepositTransactions(amount, balance);
   this._addTransactionToStatement();
 };
 

@@ -15,7 +15,7 @@ Bankapp.prototype.deposit = function (amount) {
   if (this._depositAmount !== 0) {
     let depositedAmount = this._depositAmount;
     let currentBalance = this._balance;
-    this._statement._depositReceived(depositedAmount, currentBalance);
+    this._statement.depositReceived(depositedAmount, currentBalance);
   }
 };
 
@@ -24,17 +24,17 @@ Bankapp.prototype.withdraw = function (amount) {
   if (this._withdrawAmount !== 0) {
     let withdrawnAmount = this._withdrawAmount;
     let currentBalance = this._balance;
-    this._statement._withdrawReceived(withdrawnAmount, currentBalance);
+    this._statement.withdrawReceived(withdrawnAmount, currentBalance);
   }
 };
 
 Bankapp.prototype._checkDepositAmount = function (amount) {
   if (amount < 1) {
-    console.log(this._errorLogger._lessThanOne());
+    console.log(this._errorLogger.lessThanOne());
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger._notANumber());
+    console.log(this._errorLogger.notANumber());
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger._notAnInteger());
+    console.log(this._errorLogger.notAnInteger());
   } else {
     this._depositAmount = parseInt(amount);
     this._balance += this._depositAmount;
@@ -43,11 +43,11 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
 
 Bankapp.prototype._checkWithdrawAmount = function (amount) {
   if (amount > this._balance) {
-    console.log(this._errorLogger._insufficientFunds());
+    console.log(this._errorLogger.insufficientFunds());
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger._notANumber());
+    console.log(this._errorLogger.notANumber());
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger._notAnInteger());
+    console.log(this._errorLogger.notAnInteger());
   } else {
     this._withdrawAmount = parseInt(amount);
     this._balance -= this._withdrawAmount;
@@ -55,5 +55,5 @@ Bankapp.prototype._checkWithdrawAmount = function (amount) {
 };
 
 Bankapp.prototype.printStatement = function () {
-  return this._statement._returnStatement();
+  return this._statement.returnStatement();
 };
