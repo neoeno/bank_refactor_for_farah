@@ -23,7 +23,7 @@ describe('Interface functions', () => {
     it('withdraws the amount from balance', () => {
       bankapp._balance = 100;
       bankapp.withdraw(50);
-      expect(bankapp.showBalance()).toEqual(50);
+      expect(bankapp._balance).toEqual(50);
     });
   });
 

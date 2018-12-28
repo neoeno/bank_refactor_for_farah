@@ -5,7 +5,7 @@ describe('Statement functinos', () => {
   });
 
   describe('#depositReceived', () => {
-    it('adds the deposit transaction to the statement', () => {
+    it('adds the checked and formatted deposit transaction to the statement', () => {
       expect(statement._statementArr.length).toEqual(1);
       statement.depositReceived(50, 100);
       statement.depositReceived(50, 150);
@@ -14,7 +14,7 @@ describe('Statement functinos', () => {
   });
 
   describe('#withdrawReceived', () => {
-    it('adds the withdraw transaction to the statement', () => {
+    it('adds the checked and formatted withdraw transaction to the statement', () => {
       statement.withdrawReceived(50, 50);
       expect(statement._statementArr.length).toEqual(2);
     });
