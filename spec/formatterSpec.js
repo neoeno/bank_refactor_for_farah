@@ -43,14 +43,18 @@ describe('Formatter functions', () => {
 
   describe('#_formatDate', () => {
     it('formats the date as per the requierments', () => {
-      let date = new Date();
-      let month = date.getMonth() + 1;
-      let day = date.getDate();
-      let year = date.getFullYear();
-      if (day < 10)(day = '0' + day);
-      if (month < 10)(month = '0' + month);
-      date = (day + '/' + month + '/' + year);
-      expect(formatter._formatDate()).toEqual(date);
+      expect(formatter._formatDate()).toEqual(today());
     });
   });
+
+  function today () {
+    let date = new Date();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let year = date.getFullYear();
+    if (day < 10)(day = '0' + day);
+    if (month < 10)(month = '0' + month);
+    date = (day + '/' + month + '/' + year);
+    return date;
+  };
 });
