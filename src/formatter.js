@@ -6,6 +6,15 @@ Formatter.prototype.formatDepositTransactions = function (amount, balance) {
   this._formatDeposit(amount, balance);
 };
 
+Formatter.prototype.sendFormattedTransaction = function () {
+  let latestTransaction = this._transactionsHolder.splice(0, 1);
+  return latestTransaction;
+};
+
+Formatter.prototype.formatWithdrawTransactions = function (amount, balance) {
+  this._formatWithdraw(amount, balance);
+};
+
 Formatter.prototype._formatDeposit = function (amount, balance) {
   let arr = [];
   let depositedAmount = this._amountToDecimal(amount);
@@ -15,10 +24,6 @@ Formatter.prototype._formatDeposit = function (amount, balance) {
   this._transactionsHolder.push(arr.join('  ||  '));
 };
 
-Formatter.prototype.formatWithdrawTransactions = function (amount, balance) {
-  this._formatWithdraw(amount, balance);
-};
-
 Formatter.prototype._formatWithdraw = function (amount, balance) {
   let arr = [];
   let withdrawnAmount = this._amountToDecimal(amount);
@@ -26,11 +31,6 @@ Formatter.prototype._formatWithdraw = function (amount, balance) {
   let date = this._formatDate();
   arr.push(date, '      ', withdrawnAmount, currentBalance);
   this._transactionsHolder.push(arr.join('  ||  '));
-};
-
-Formatter.prototype.sendFormattedTransaction = function () {
-  let latestTransaction = this._transactionsHolder.splice(0, 1);
-  return latestTransaction;
 };
 
 Formatter.prototype._amountToDecimal = function (num) {

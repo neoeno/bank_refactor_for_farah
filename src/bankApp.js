@@ -15,7 +15,7 @@ Bankapp.prototype.deposit = function (amount) {
   if (this._depositAmount !== 0) {
     let depositedAmount = this._depositAmount;
     let currentBalance = this._balance;
-    this._statement.depositReceived(depositedAmount, currentBalance);
+    this._statement.receiveDeposit(depositedAmount, currentBalance);
   }
 };
 
@@ -24,36 +24,36 @@ Bankapp.prototype.withdraw = function (amount) {
   if (this._withdrawAmount !== 0) {
     let withdrawnAmount = this._withdrawAmount;
     let currentBalance = this._balance;
-    this._statement.withdrawReceived(withdrawnAmount, currentBalance);
+    this._statement.receiveWithdraw(withdrawnAmount, currentBalance);
   }
 };
 
 Bankapp.prototype._checkDepositAmount = function (amount) {
   if (amount < 1) {
-    console.log(this._errorLogger.lessThanOne());
+    console.log(this._errorLogger.returnLessThanOne());
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger.notANumber());
+    console.log(this._errorLogger.returnNotANumber());
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger.notAnInteger());
+    console.log(this._errorLogger.returnNotAnInteger());
   } else {
     this._depositAmount = parseInt(amount);
     this._balance += this._depositAmount;
   }
 };
 
+Bankapp.prototype.printStatement = function () {
+  return this._statement.returnStatement();
+};
+
 Bankapp.prototype._checkWithdrawAmount = function (amount) {
   if (amount > this._balance) {
-    console.log(this._errorLogger.insufficientFunds());
+    console.log(this._errorLogger.returnInsufficientFunds());
   } else if (isNaN(amount)) {
-    console.log(this._errorLogger.notANumber());
+    console.log(this._errorLogger.returnNotANumber());
   } else if (amount % 1 !== 0) {
-    console.log(this._errorLogger.notAnInteger());
+    console.log(this._errorLogger.returnNotAnInteger());
   } else {
     this._withdrawAmount = parseInt(amount);
     this._balance -= this._withdrawAmount;
   }
-};
-
-Bankapp.prototype.printStatement = function () {
-  return this._statement.returnStatement();
 };

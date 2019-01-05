@@ -20,7 +20,9 @@
        "Statement": true,
        "ErrorLogger": true,
        "Bankapp": true,
-       "bankapp": true
+       "bankapp": true,
+       "errorlogger": true,
+       "ErrorLogger": true
    },
    "rules": {
      "camelcase": [2, {"properties": "always"}],

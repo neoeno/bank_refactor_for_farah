@@ -1,18 +1,18 @@
 function ErrorLogger () {}
 
-ErrorLogger.prototype.lessThanOne = function () {
+ErrorLogger.prototype.returnLessThanOne = function () {
   return this._lessThanOne();
 };
 
-ErrorLogger.prototype.notANumber = function () {
+ErrorLogger.prototype.returnNotANumber = function () {
   return this._notANumber();
 };
 
-ErrorLogger.prototype.notAnInteger = function () {
+ErrorLogger.prototype.returnNotAnInteger = function () {
   return this._notAnInteger();
 };
 
-ErrorLogger.prototype.insufficientFunds = function () {
+ErrorLogger.prototype.returnInsufficientFunds = function () {
   return this._insufficientFunds();
 };
 
