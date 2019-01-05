@@ -17,8 +17,8 @@ Formatter.prototype.formatWithdrawTransactions = function (amount, balance) {
 
 Formatter.prototype._formatDeposit = function (amount, balance) {
   let arr = [];
-  let depositedAmount = this._amountToDecimal(amount);
-  let currentBalance = this._amountToDecimal(balance);
+  let depositedAmount = this._formatAmountToDecimal(amount);
+  let currentBalance = this._formatAmountToDecimal(balance);
   let date = this._formatDate();
   arr.push(date, depositedAmount, '      ', currentBalance);
   this._transactionsHolder.push(arr.join('  ||  '));
@@ -26,14 +26,14 @@ Formatter.prototype._formatDeposit = function (amount, balance) {
 
 Formatter.prototype._formatWithdraw = function (amount, balance) {
   let arr = [];
-  let withdrawnAmount = this._amountToDecimal(amount);
-  let currentBalance = this._amountToDecimal(balance);
+  let withdrawnAmount = this._formatAmountToDecimal(amount);
+  let currentBalance = this._formatAmountToDecimal(balance);
   let date = this._formatDate();
   arr.push(date, '      ', withdrawnAmount, currentBalance);
   this._transactionsHolder.push(arr.join('  ||  '));
 };
 
-Formatter.prototype._amountToDecimal = function (num) {
+Formatter.prototype._formatAmountToDecimal = function (num) {
   let decimaledAmount = (parseFloat(Math.round(num * 100) / 100).toFixed(2));
   return decimaledAmount;
 };
