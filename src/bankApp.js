@@ -28,6 +28,10 @@ Bankapp.prototype.withdraw = function (amount) {
   }
 };
 
+Bankapp.prototype.printStatement = function () {
+  return this._statement.returnStatement();
+};
+
 Bankapp.prototype._checkDepositAmount = function (amount) {
   if (amount < 1) {
     console.log(this._errorLogger.returnLessThanOne());
@@ -39,10 +43,6 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
     this._depositAmount = parseInt(amount);
     this._balance += this._depositAmount;
   }
-};
-
-Bankapp.prototype.printStatement = function () {
-  return this._statement.returnStatement();
 };
 
 Bankapp.prototype._checkWithdrawAmount = function (amount) {
