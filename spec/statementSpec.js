@@ -13,7 +13,7 @@ describe('Statement functinos', () => {
     });
   });
 
-  describe('#withdrawReceived', () => {
+  describe('#receiveWithdraw', () => {
     it('adds the checked and formatted withdraw transaction to the statement', () => {
       statement.receiveWithdraw(50, 50);
       expect(statement._statementArr.length).toEqual(2);
