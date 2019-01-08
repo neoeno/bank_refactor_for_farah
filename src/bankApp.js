@@ -1,4 +1,4 @@
-function Bankapp () {
+function BankApp () {
   this._statement = new Statement();
   this._errorLogger = new ErrorLogger();
 
@@ -6,11 +6,11 @@ function Bankapp () {
   this._depositAmount = 0;
   this._withdrawAmount = 0;
 }
-Bankapp.prototype.showBalance = function () {
+BankApp.prototype.showBalance = function () {
   return this._balance;
 };
 
-Bankapp.prototype.deposit = function (amount) {
+BankApp.prototype.deposit = function (amount) {
   this._checkDepositAmount(amount);
   if (this._depositAmount !== 0) {
     let depositedAmount = this._depositAmount;
@@ -19,7 +19,7 @@ Bankapp.prototype.deposit = function (amount) {
   }
 };
 
-Bankapp.prototype.withdraw = function (amount) {
+BankApp.prototype.withdraw = function (amount) {
   this._checkWithdrawAmount(amount);
   if (this._withdrawAmount !== 0) {
     let withdrawnAmount = this._withdrawAmount;
@@ -28,11 +28,18 @@ Bankapp.prototype.withdraw = function (amount) {
   }
 };
 
-Bankapp.prototype.printStatement = function () {
+BankApp.prototype.printStatement = function () {
+  let statement = this.returnStatementArray().flat();
+  statement.forEach(transaction => {
+    console.log(transaction);
+  });
+};
+
+BankApp.prototype.returnStatementArray = function () {
   return this._statement.returnStatement();
 };
 
-Bankapp.prototype._checkDepositAmount = function (amount) {
+BankApp.prototype._checkDepositAmount = function (amount) {
   if (amount < 1) {
     console.log(this._errorLogger.returnLessThanOne());
   } else if (isNaN(amount)) {
@@ -45,7 +52,7 @@ Bankapp.prototype._checkDepositAmount = function (amount) {
   }
 };
 
-Bankapp.prototype._checkWithdrawAmount = function (amount) {
+BankApp.prototype._checkWithdrawAmount = function (amount) {
   if (amount > this._balance) {
     console.log(this._errorLogger.returnInsufficientFunds());
   } else if (isNaN(amount)) {

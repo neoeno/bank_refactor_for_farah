@@ -19,7 +19,7 @@
        "errorLogger": true,
        "Statement": true,
        "ErrorLogger": true,
-       "Bankapp": true,
+       "BankApp": true,
        "bankapp": true,
        "errorlogger": true,
        "ErrorLogger": true
