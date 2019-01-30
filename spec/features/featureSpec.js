@@ -55,6 +55,7 @@ describe('Bank Application', () => {
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(80);
       let today = formatter._formatDate();
+      console.log(bankapp.returnStatementArray())
       expect(bankapp.returnStatementArray()).toEqual([
         ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  20.00  ||  80.00`],
