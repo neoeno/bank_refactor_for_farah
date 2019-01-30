@@ -15,8 +15,7 @@ Statement.prototype.receiveWithdraw = function (amount, balance) {
 };
 
 Statement.prototype.returnStatement = function (arr) {
-  const header = ['   Date     ||  Credit   ||  Debit   ||  Balance  '];
-  return [header, ...this._statementArr];
+  return this._statementArr;
 };
 
 Statement.prototype._addTransactionToStatement = function () {

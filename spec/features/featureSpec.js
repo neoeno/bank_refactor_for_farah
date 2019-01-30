@@ -37,7 +37,6 @@ describe('Bank Application', () => {
       expect(bankapp.showBalance()).toEqual(130);
       let today = formatter._formatDate();
       expect(bankapp.returnStatementArray()).toEqual([
-        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  20.00  ||  130.00`],
         [`${today}  ||          ||  50.00  ||  150.00`],
         [`${today}  ||  100.00  ||          ||  200.00`],
@@ -57,7 +56,6 @@ describe('Bank Application', () => {
       let today = formatter._formatDate();
       console.log(bankapp.returnStatementArray())
       expect(bankapp.returnStatementArray()).toEqual([
-        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  20.00  ||  80.00`],
         [`${today}  ||  100.00  ||          ||  100.00`],
         [`${today}  ||  100.00  ||          ||  100.00`]

@@ -34,11 +34,11 @@ describe('bankapp functions', () => {
       let today = formatter._formatDate();
       bankapp.deposit(100);
       bankapp.withdraw(50);
-      expect(bankapp.returnStatementArray()).toEqual([
-        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
-        [`${today}  ||          ||  50.00  ||  50.00`],
-        [`${today}  ||  100.00  ||          ||  100.00`]
-      ]);
+      spyOn(console, 'log')
+      bankapp.printStatement()
+      expect(console.log).toHaveBeenCalledWith(
+        "   Date     ||  Credit   ||  Debit   ||  Balance  \n30/01/2019  ||          ||  50.00  ||  50.00\n30/01/2019  ||  100.00  ||          ||  100.00"
+      );
     });
   });
 });

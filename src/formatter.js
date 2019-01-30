@@ -2,6 +2,11 @@ function Formatter () {
   this._transactionsHolder = [];
 }
 
+Formatter.prototype.formatStatement = function (statement) {
+  const header = "   Date     ||  Credit   ||  Debit   ||  Balance  ";
+  return [header, ...statement].join("\n")
+}
+
 Formatter.prototype.formatDepositTransactions = function (amount, balance) {
   this._formatDeposit(amount, balance);
 };

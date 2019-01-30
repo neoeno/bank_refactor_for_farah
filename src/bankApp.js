@@ -1,6 +1,7 @@
 function BankApp () {
   this._statement = new Statement();
   this._errorLogger = new ErrorLogger();
+  this._formatter = new Formatter();
 
   this._balance = 0;
   this._depositAmount = 0;
@@ -30,9 +31,8 @@ BankApp.prototype.withdraw = function (amount) {
 
 BankApp.prototype.printStatement = function () {
   let statement = this.returnStatementArray().flat();
-  statement.forEach(transaction => {
-    console.log(transaction);
-  });
+  const formatted = this._formatter.formatStatement(statement);
+  console.log(formatted);
 };
 
 BankApp.prototype.returnStatementArray = function () {

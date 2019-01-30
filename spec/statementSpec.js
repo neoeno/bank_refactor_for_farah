@@ -28,7 +28,6 @@ describe('statement functinos', () => {
       statement.receiveWithdraw(50, 50);
       let today = formatter._formatDate();
       expect(statement.returnStatement()).toEqual([
-        ['   Date     ||  Credit   ||  Debit   ||  Balance  '],
         [`${today}  ||          ||  50.00  ||  50.00`],
         [`${today}  ||  50.00  ||          ||  100.00`]
       ]);

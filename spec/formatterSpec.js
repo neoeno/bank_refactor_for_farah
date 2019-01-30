@@ -35,4 +35,11 @@ describe('formatter functions', () => {
       expect(formatter._transactionsHolder.length).toEqual(0);
     });
   });
+
+  describe('#formatStatement', () => {
+    it("formats a typical statement", () => {
+      const result = formatter.formatStatement(["30/01/2019  ||  50.00  ||          ||  100.00"]);
+      expect(result).toEqual("   Date     ||  Credit   ||  Debit   ||  Balance  \n30/01/2019  ||  50.00  ||          ||  100.00")
+    })
+  })
 });
