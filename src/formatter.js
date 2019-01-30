@@ -4,21 +4,18 @@ function Formatter () {
 
 Formatter.prototype.formatStatement = function (statement) {
   const header = "   Date     ||  Credit   ||  Debit   ||  Balance  ";
-  return [header, ...statement].join("\n")
+  const formattedTransactions = statement.map(transaction =>
+    this._formatTransaction(transaction))
+  return [header, ...formattedTransactions].join("\n")
 }
 
-Formatter.prototype.formatDepositTransactions = function (amount, balance) {
-  this._formatDeposit(amount, balance);
-};
-
-Formatter.prototype.sendFormattedTransaction = function () {
-  let latestTransaction = this._transactionsHolder.splice(0, 1);
-  return latestTransaction;
-};
-
-Formatter.prototype.formatWithdrawTransactions = function (amount, balance) {
-  this._formatWithdraw(amount, balance);
-};
+Formatter.prototype._formatTransaction = function (transaction) {
+  if (transaction.kind == "deposit") {
+    return this._formatDeposit(transaction.amount, transaction.balance);
+  } else {
+    return this._formatWithdraw(transaction.amount, transaction.balance);
+  }
+}
 
 Formatter.prototype._formatDeposit = function (amount, balance) {
   let arr = [];
@@ -26,7 +23,7 @@ Formatter.prototype._formatDeposit = function (amount, balance) {
   let currentBalance = this._formatAmountToDecimal(balance);
   let date = this._formatDate();
   arr.push(date, depositedAmount, '      ', currentBalance);
-  this._transactionsHolder.push(arr.join('  ||  '));
+  return arr.join('  ||  ');
 };
 
 Formatter.prototype._formatWithdraw = function (amount, balance) {
@@ -35,7 +32,7 @@ Formatter.prototype._formatWithdraw = function (amount, balance) {
   let currentBalance = this._formatAmountToDecimal(balance);
   let date = this._formatDate();
   arr.push(date, '      ', withdrawnAmount, currentBalance);
-  this._transactionsHolder.push(arr.join('  ||  '));
+  return arr.join('  ||  ');
 };
 
 Formatter.prototype._formatAmountToDecimal = function (num) {

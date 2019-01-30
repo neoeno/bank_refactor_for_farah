@@ -5,20 +5,13 @@ function Statement () {
 }
 
 Statement.prototype.receiveDeposit = function (amount, balance) {
-  this._formatter.formatDepositTransactions(amount, balance);
-  this._addTransactionToStatement();
+  this._statementArr.unshift({ amount: amount, balance: balance, kind: "deposit" });
 };
 
 Statement.prototype.receiveWithdraw = function (amount, balance) {
-  this._formatter.formatWithdrawTransactions(amount, balance);
-  this._addTransactionToStatement();
+  this._statementArr.unshift({ amount: amount, balance: balance, kind: "withdraw" });
 };
 
 Statement.prototype.returnStatement = function (arr) {
   return this._statementArr;
-};
-
-Statement.prototype._addTransactionToStatement = function () {
-  let transaction = this._formatter.sendFormattedTransaction();
-  this._statementArr.unshift(transaction);
 };
