@@ -37,7 +37,7 @@ describe('bankapp functions', () => {
       spyOn(console, 'log')
       bankapp.printStatement()
       expect(console.log).toHaveBeenCalledWith(
-        "   Date     ||  Credit   ||  Debit   ||  Balance  \n30/01/2019  ||          ||  50.00  ||  50.00\n30/01/2019  ||  100.00  ||          ||  100.00"
+        `   Date     ||  Credit   ||  Debit   ||  Balance  \n${today}  ||          ||  50.00  ||  50.00\n${today}  ||  100.00  ||          ||  100.00`
       );
     });
   });

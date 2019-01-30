@@ -30,13 +30,9 @@ BankApp.prototype.withdraw = function (amount) {
 };
 
 BankApp.prototype.printStatement = function () {
-  let statement = this.returnStatementArray().flat();
+  let statement = this._statement.returnStatement();
   const formatted = this._formatter.formatStatement(statement);
   console.log(formatted);
-};
-
-BankApp.prototype.returnStatementArray = function () {
-  return this._statement.returnStatement();
 };
 
 BankApp.prototype._checkDepositAmount = function (amount) {

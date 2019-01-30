@@ -36,12 +36,9 @@ describe('Bank Application', () => {
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(130);
       let today = formatter._formatDate();
-      expect(bankapp.returnStatementArray()).toEqual([
-        [`${today}  ||          ||  20.00  ||  130.00`],
-        [`${today}  ||          ||  50.00  ||  150.00`],
-        [`${today}  ||  100.00  ||          ||  200.00`],
-        [`${today}  ||  100.00  ||          ||  100.00`]
-      ]);
+      spyOn(console, 'log');
+      bankapp.printStatement()
+      expect(console.log).toHaveBeenCalledWith(`   Date     ||  Credit   ||  Debit   ||  Balance  \n${today}  ||          ||  20.00  ||  130.00\n${today}  ||          ||  50.00  ||  150.00\n${today}  ||  100.00  ||          ||  200.00\n${today}  ||  100.00  ||          ||  100.00`);
     });
   });
 
@@ -54,12 +51,9 @@ describe('Bank Application', () => {
       bankapp.withdraw(20);
       expect(bankapp.showBalance()).toEqual(80);
       let today = formatter._formatDate();
-      console.log(bankapp.returnStatementArray())
-      expect(bankapp.returnStatementArray()).toEqual([
-        [`${today}  ||          ||  20.00  ||  80.00`],
-        [`${today}  ||  100.00  ||          ||  100.00`],
-        [`${today}  ||  100.00  ||          ||  100.00`]
-      ]);
+      spyOn(console, 'log');
+      bankapp.printStatement()
+      expect(console.log).toHaveBeenCalledWith(`   Date     ||  Credit   ||  Debit   ||  Balance  \n${today}  ||          ||  20.00  ||  80.00\n${today}  ||  100.00  ||          ||  100.00\n${today}  ||  100.00  ||          ||  100.00`);
     });
   });
 });
