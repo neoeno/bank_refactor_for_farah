@@ -3,7 +3,7 @@ describe('Bank Application', () => {
   let formatter;
   beforeEach(() => {
     bankapp = new BankApp();
-    formatter = new Formatter();
+    formatter = new PrintFormatter();
   });
 
   describe('Correct inputs deposit/withdraw', () => {

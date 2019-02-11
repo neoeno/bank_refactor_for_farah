@@ -3,7 +3,7 @@ describe('statement functinos', () => {
   let formatter;
   beforeEach(() => {
     statement = new Statement();
-    formatter = new Formatter();
+    formatter = new PrintFormatter();
   });
 
   it('returns the array of transactions', () => {

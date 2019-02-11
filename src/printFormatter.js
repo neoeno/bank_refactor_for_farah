@@ -1,15 +1,15 @@
-function Formatter () {
+function PrintFormatter () {
   this._transactionsHolder = [];
 }
 
-Formatter.prototype.formatStatement = function (statement) {
+PrintFormatter.prototype.formatStatement = function (statement) {
   const header = "   Date     ||  Credit   ||  Debit   ||  Balance  ";
   const formattedTransactions = statement.map(transaction =>
     this._formatTransaction(transaction))
   return [header, ...formattedTransactions].join("\n")
 }
 
-Formatter.prototype._formatTransaction = function (transaction) {
+PrintFormatter.prototype._formatTransaction = function (transaction) {
   if (transaction.kind == "deposit") {
     return this._formatDeposit(transaction.amount, transaction.balance);
   } else {
@@ -17,7 +17,7 @@ Formatter.prototype._formatTransaction = function (transaction) {
   }
 }
 
-Formatter.prototype._formatDeposit = function (amount, balance) {
+PrintFormatter.prototype._formatDeposit = function (amount, balance) {
   let arr = [];
   let depositedAmount = this._formatAmountToDecimal(amount);
   let currentBalance = this._formatAmountToDecimal(balance);
@@ -26,7 +26,7 @@ Formatter.prototype._formatDeposit = function (amount, balance) {
   return arr.join('  ||  ');
 };
 
-Formatter.prototype._formatWithdraw = function (amount, balance) {
+PrintFormatter.prototype._formatWithdraw = function (amount, balance) {
   let arr = [];
   let withdrawnAmount = this._formatAmountToDecimal(amount);
   let currentBalance = this._formatAmountToDecimal(balance);
@@ -35,12 +35,12 @@ Formatter.prototype._formatWithdraw = function (amount, balance) {
   return arr.join('  ||  ');
 };
 
-Formatter.prototype._formatAmountToDecimal = function (num) {
+PrintFormatter.prototype._formatAmountToDecimal = function (num) {
   let decimaledAmount = (parseFloat(Math.round(num * 100) / 100).toFixed(2));
   return decimaledAmount;
 };
 
-Formatter.prototype._formatDate = function () {
+PrintFormatter.prototype._formatDate = function () {
   let date = new Date();
   let day = date.getDate();
   let month = (date.getMonth() + 1);

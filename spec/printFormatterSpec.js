@@ -1,7 +1,7 @@
 describe('formatter functions', () => {
   let formatter;
   beforeEach(() => {
-    formatter = new Formatter();
+    formatter = new PrintFormatter();
   });
 
   describe('#formatStatement', () => {

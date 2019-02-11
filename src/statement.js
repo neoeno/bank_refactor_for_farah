@@ -1,5 +1,5 @@
 function Statement () {
-  this._formatter = new Formatter();
+  this._formatter = new PrintFormatter();
   this._statementArr = [
   ];
 }

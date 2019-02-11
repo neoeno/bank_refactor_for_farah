@@ -1,7 +1,7 @@
 function BankApp () {
   this._statement = new Statement();
   this._errorLogger = new ErrorLogger();
-  this._formatter = new Formatter();
+  this._formatter = new PrintFormatter();
 
   this._balance = 0;
   this._depositAmount = 0;
