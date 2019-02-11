@@ -2,8 +2,8 @@ describe('bankapp functions', () => {
   let bankapp;
   let formatter;
   beforeEach(() => {
-    bankapp = new BankApp();
     formatter = new PrintFormatter();
+    bankapp = new BankApp(formatter);
   });
 
   describe('#showBalance', () => {
